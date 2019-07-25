@@ -5,9 +5,7 @@ var noise = OpenSimplexNoise.new()
 onready var game = get_tree().get_root().get_node("Game")
 var mat = SpatialMaterial.new()
 var mesh_node
-var block_class
 var static_node
-var temp_dict_2 = {}
 var block_dict = {}
 var block_types = {0:{"top":Vector2(0,0),"bottom":Vector2(2,0),"left":Vector2(1,0),
 					 "right":Vector2(1,0),"front":Vector2(1,0),"back":Vector2(1,0)},

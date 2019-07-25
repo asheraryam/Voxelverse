@@ -29,7 +29,7 @@ func done_chunk_loading(chunk):
 
 
 func _process(delta):
-
+	
 	get_node("fps_label").set_text(str(Engine.get_frames_per_second()))
 	player_pos = get_node("Player").global_transform[3]
 	player_chunk = Vector3(floor(player_pos[0]/16.0),floor(player_pos[1]/16.0),floor(player_pos[2]/16.0))
@@ -130,9 +130,8 @@ func load_chunk(arr):
 func place_chunk(c):
 	if not c in chunk_dict:
 		var chunk = load("res://Chunk.tscn").instance()
-		chunk.chunk_pos = c
+		chunk.ChunkPos = c
 		chunk.set_name(str(c.x)+" "+str(c.y)+" "+str(c.z))
-		chunk.block_class = load("res://Block.tscn")
 		chunk_dict[c] = chunk
 
 		thread_chunking.start(self,'load_chunk',[chunk,thread_chunking,generation_seed])
@@ -231,7 +230,7 @@ func chunk_manager():
 
 		
 
-	
+
 
 			
 			

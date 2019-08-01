@@ -84,50 +84,54 @@ public class Chunk : Node
 			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[0]))[1]));
 			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[0]))[1]));
 		}
-		/*
-		elif Orient == "right":
-			var UVOffsets = get_texture_atlas_uvs(texture_atlas_size,block_types[t]["right"])
-			vertices.Add(Vector3(1+x,y,z))
-			vertices.Add(Vector3(1+x,y,1+z))
-			vertices.Add(Vector3(1+x,1+y,z))
-			uvs.Add(Vector2(UVOffsets[1][0],UVOffsets[1][1]))
-			uvs.Add(Vector2(UVOffsets[0][0],UVOffsets[1][1]))
-			uvs.Add(Vector2(UVOffsets[1][0],UVOffsets[0][1]))
-			vertices.Add(Vector3(1+x,y,1+z))
-			vertices.Add(Vector3(1+x,1+y,1+z))
-			vertices.Add(Vector3(1+x,1+y,z))
-			uvs.Add(Vector2(UVOffsets[0][0],UVOffsets[1][1]))
-			uvs.Add(Vector2(UVOffsets[0][0],UVOffsets[0][1]))
-			uvs.Add(Vector2(UVOffsets[1][0],UVOffsets[0][1]))
-		elif Orient == "front":
-			var UVOffsets = get_texture_atlas_uvs(texture_atlas_size,block_types[t]["front"])
-			vertices.Add(Vector3(x,y,1+z))
-			vertices.Add(Vector3(x,1+y,1+z))
-			vertices.Add(Vector3(1+x,y,1+z))
-			uvs.Add(Vector2(UVOffsets[0][0],UVOffsets[1][1]))
-			uvs.Add(Vector2(UVOffsets[0][0],UVOffsets[0][1]))
-			uvs.Add(Vector2(UVOffsets[1][0],UVOffsets[1][1]))
-			vertices.Add(Vector3(1+x,y,1+z))
-			vertices.Add(Vector3(x,1+y,1+z))
-			vertices.Add(Vector3(1+x,1+y,1+z))
-			uvs.Add(Vector2(UVOffsets[1][0],UVOffsets[1][1]))
-			uvs.Add(Vector2(UVOffsets[0][0],UVOffsets[0][1]))
-			uvs.Add(Vector2(UVOffsets[1][0],UVOffsets[0][1]))
-		elif Orient == "back":
-			var UVOffsets = get_texture_atlas_uvs(texture_atlas_size,block_types[t]["back"])
-			vertices.Add(Vector3(1+x,y,z))
-			vertices.Add(Vector3(1+x,1+y,z))
-			vertices.Add(Vector3(x,y,z))
-			uvs.Add(Vector2(UVOffsets[0][0],UVOffsets[1][1]))
-			uvs.Add(Vector2(UVOffsets[0][0],UVOffsets[0][1]))
-			uvs.Add(Vector2(UVOffsets[1][0],UVOffsets[1][1]))
-			vertices.Add(Vector3(x,y,z))
-			vertices.Add(Vector3(1+x,1+y,z))
-			vertices.Add(Vector3(x,1+y,z))
-			uvs.Add(Vector2(UVOffsets[1][0],UVOffsets[1][1]))
-			uvs.Add(Vector2(UVOffsets[0][0],UVOffsets[0][1]))
-			uvs.Add(Vector2(UVOffsets[1][0],UVOffsets[0][1]))
-			*/
+		else if (Orient == "right")
+		{
+			Godot.Collections.Array UVOffsets = GetTextureAtlasUVs(TextureAtlasSize,new Vector2(0,0));
+			Vertices.Add(new Vector3(1+X,Y,Z));
+			Vertices.Add(new Vector3(1+X,Y,1+Z));
+			Vertices.Add(new Vector3(1+X,1+Y,Z));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[1]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[1]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[0]))[1]));
+			Vertices.Add(new Vector3(1+X,Y,1+Z));
+			Vertices.Add(new Vector3(1+X,1+Y,1+Z));
+			Vertices.Add(new Vector3(1+X,1+Y,Z));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[1]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[0]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[0]))[1]));
+		}
+		else if (Orient == "front")
+		{
+			Godot.Collections.Array UVOffsets = GetTextureAtlasUVs(TextureAtlasSize,new Vector2(0,0));
+			Vertices.Add(new Vector3(X,Y,1+Z));
+			Vertices.Add(new Vector3(X,1+Y,1+Z));
+			Vertices.Add(new Vector3(1+X,Y,1+Z));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[1]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[0]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[1]))[1]));
+			Vertices.Add(new Vector3(1+X,Y,1+Z));
+			Vertices.Add(new Vector3(X,1+Y,1+Z));
+			Vertices.Add(new Vector3(1+X,1+Y,1+Z));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[1]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[0]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[0]))[1]));
+		}
+		else if (Orient == "back")
+		{
+			Godot.Collections.Array UVOffsets = GetTextureAtlasUVs(TextureAtlasSize,new Vector2(0,0));
+			Vertices.Add(new Vector3(1+X,Y,Z));
+			Vertices.Add(new Vector3(1+X,1+Y,Z));
+			Vertices.Add(new Vector3(X,Y,Z));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[1]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[0]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[1]))[1]));
+			Vertices.Add(new Vector3(X,Y,Z));
+			Vertices.Add(new Vector3(1+X,1+Y,Z));
+			Vertices.Add(new Vector3(X,1+Y,Z));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[1]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[0]))[0],((Vector2)(UVOffsets[0]))[1]));
+			UVs.Add(new Vector2(((Vector2)(UVOffsets[1]))[0],((Vector2)(UVOffsets[0]))[1]));
+		}
 		Godot.Collections.Array Arr = new Godot.Collections.Array();
 		Arr.Add(Vertices);
 		Arr.Add(UVs);
